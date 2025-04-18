@@ -15,8 +15,6 @@ import Link from "next/link";
 import { TbBrandThreads } from "react-icons/tb";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { BiArrowBack } from "react-icons/bi";
-import { GoHomeFill, GoPerson } from "react-icons/go";
-import { FiHeart, FiPlus } from "react-icons/fi";
 import { RiInstagramLine } from "react-icons/ri";
 import NavButton from "@/components/custom/NavButton";
 import Aside from "@/components/custom/Aside";
