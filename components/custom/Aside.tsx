@@ -9,83 +9,79 @@ import { IoSearch } from "react-icons/io5";
 import { LuPin } from "react-icons/lu";
 import { TbBrandThreads } from "react-icons/tb";
 
-interface AsideProps {}
-const icons = [
-  <Link href="/">
-    <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 px-4 animate rounded-lg">
-      <GoHomeFill />
-    </div>
-  </Link>,
-  <Link href="/search">
-    <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg">
-      <IoSearch />
-    </div>
-  </Link>,
-  <div className="bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg">
-    <FiPlus />
-  </div>,
-  <Link href="/activity">
-    <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg">
-      <FiHeart />
-    </div>
-  </Link>,
-  <Link href="/profile">
-    <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg">
-      <GoPerson />
-    </div>
-  </Link>,
+const iconLinks = [
+  { href: "/", icon: <GoHomeFill /> },
+  { href: "/search", icon: <IoSearch /> },
+  { href: null, icon: <FiPlus /> }, 
+  { href: "/activity", icon: <FiHeart /> },
+  { href: "/profile", icon: <GoPerson /> },
 ];
 
-const Aside: React.FC<AsideProps> = () => {
-  const [actText, setActText] = useState<null | string | number>(0);
+const IconWrapper = ({
+  children,
+  isActive,
+  onClick,
+  href,
+}: {
+  children: React.ReactNode;
+  isActive?: boolean;
+  onClick?: () => void;
+  href?: string | null;
+}) => {
+  const content = (
+    <div
+      onClick={onClick}
+      className={`hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 px-4 animate rounded-lg text-[25px] ${
+        isActive ? "text-white" : "text-gray-500"
+      }`}
+    >
+      {children}
+    </div>
+  );
+
+  return href ? <Link href={href}>{content}</Link> : content;
+};
+
+const Aside: React.FC = () => {
+  const [actText, setActText] = useState<number | null>(0);
 
   return (
-    <>
-      <aside className="hidden md:flex flex-col justify-between h-screen w-fit px-0 pt-6 py-9">
-        <Link href="/">
-          <div className="w-full flex justify-center  animate rounded-lg">
-            <TbBrandThreads color="white" size={34} className="text-center" />
-          </div>
-        </Link>
-        <nav>
-          <ul className="flex flex-col gap-4 text-[#6B6B6B] ">
-            {icons.map((icon, index) => {
-              return (
-                <li
-                  key={index}
-                  onClick={() => setActText(index)}
-                  className={`text-[color(display-p3 0.3 0.3 0.3)] text-[25px] cursor-pointer ${
-                    actText === index
-                      ? "text-white"
-                      : "text-[color(display-p3 0.3 0.3 0.3)]"
-                  }`}
-                >
-                  {icon}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-        <div className="flex flex-col">
-          <button>
-            <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg">
-              <LuPin
-                color=""
-                className="text-[gray] text-[25px] cursor-pointer"
-              />
-            </div>
-          </button>
-          <button>
-            <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg">
-              <CgMenuRightAlt
-                color=""
-                className="text-[gray] text-[25px] cursor-pointer rotate-180"
-              />
-            </div>
-          </button>
+    <aside className="hidden md:flex flex-col justify-between h-screen w-fit px-0 pt-6 py-9">
+      <Link href="/">
+        <div className="w-full flex justify-center animate rounded-lg">
+          <TbBrandThreads size={34} />
         </div>
-      </aside>
-    </>
+      </Link>
+
+      <nav>
+        <ul className="flex flex-col gap-4 text-[#6B6B6B]">
+          {iconLinks.map((item, index) => (
+            <li key={index}>
+              <IconWrapper
+                href={item.href}
+                isActive={actText === index}
+                onClick={() => setActText(index)}
+              >
+                {item.icon}
+              </IconWrapper>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="flex flex-col gap-4">
+        <button>
+          <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 px-4 animate rounded-lg text-[25px] text-gray-500">
+            <LuPin />
+          </div>
+        </button>
+        <button>
+          <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 px-4 animate rounded-lg text-[25px] text-gray-500 rotate-180">
+            <CgMenuRightAlt />
+          </div>
+        </button>
+      </div>
+    </aside>
   );
 };
 

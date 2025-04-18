@@ -12,9 +12,8 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { FaRegComment } from "react-icons/fa";
 import { BiRepost } from "react-icons/bi";
 import { LuSend } from "react-icons/lu";
-interface PostProps {}
 
-const Post: React.FC<PostProps> = () => {
+const Post: React.FC = () => {
   return (
     <>
       <div className="flex w-full gap-4">
@@ -48,15 +47,15 @@ const Post: React.FC<PostProps> = () => {
             </div>
 
             <div className="flex items-center gap-1 animate hover:scale-[1.1] cursor-pointer ">
-              <FaRegComment size={20} color="#a6a6a6" className="" />
+              <FaRegComment size={20} color="#a6a6a6" />
               <span className="text-sm">0</span>
             </div>
             <div className="flex items-center gap-1 animate hover:scale-[1.1] cursor-pointer ">
-              <BiRepost size={20} color="#a6a6a6" className="" />
+              <BiRepost size={20} color="#a6a6a6" />
               <span className="text-sm">0</span>
             </div>
             <div className="flex items-center gap-1 animate hover:scale-[1.1] cursor-pointer ">
-              <LuSend size={20} color="#a6a6a6" className="" />
+              <LuSend size={20} color="#a6a6a6" />
               <span className="text-sm">0</span>
             </div>
           </div>
