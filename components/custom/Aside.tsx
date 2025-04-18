@@ -49,7 +49,7 @@ const Aside: React.FC = () => {
     <aside className="hidden md:flex flex-col justify-between h-screen w-fit px-0 pt-6 py-9">
       <Link href="/">
         <div className="w-full flex justify-center animate rounded-lg">
-          <TbBrandThreads size={34} />
+          <TbBrandThreads className="text-gray-500 opacity-70 hover:text-white hover:opacity-100" size={34} />
         </div>
       </Link>
 
