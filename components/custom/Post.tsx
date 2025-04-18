@@ -32,7 +32,7 @@ const Post: React.FC = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-[#181818] w-[200px] p-2 text-white  border-0 rounded-2xl">
                 <DropdownMenuLabel className="flex cursor-pointer justify-between items-center">
-                  Копировать ссылку <AiOutlineLink size={25} />
+                  Поделится <AiOutlineLink size={25} />
                 </DropdownMenuLabel>
               </DropdownMenuContent>
             </DropdownMenu>
