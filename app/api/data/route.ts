@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET() {
   // return new Response("Hello World")
   // return NexrResponse.jsoin(users)\;
 
@@ -13,9 +13,9 @@ export async function GET(request: Request) {
   return NextResponse.json(response)
 }
 
-export async function POST(request: Request) {
-  return new Response("Hello Postman");
-}
+// export async function POST(request: Request) {
+//   return new Response("Hello Postman");
+// }
 
 const users = [
   {
