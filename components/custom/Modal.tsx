@@ -5,6 +5,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 interface ModalProps {
   type: "default" | "pin";
+  imageSrc?: string;
   onClose: () => void;
 }
 
