@@ -38,7 +38,7 @@ export default function RootLayout({
                 <FaInstagram size={24} />
                 Продолжить с аккаунтом <br /> Instagram
               </button>
-              <Link href="" className="text-[#777777]">
+              <Link href="" className="text-[#777777] hover:text-white transition">
                 Войти по имени пользователя
               </Link>
             </div>
