@@ -12,7 +12,7 @@ import ModalComponent from "./Modal";
 import AppearanceMenu from "./ThemeMenu";
 
 const Sidebar = () => {
-  const [modalType, setModalType] = useState<null | "default" | "pin">(null);
+  const [modalType, setModalType] = useState<null | "default" | "Authentificated">(null);
 
   return (
     <>
@@ -33,7 +33,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li
-              onClick={() => setModalType("pin")}
+              onClick={() => setModalType("Authentificated")}
               className="bg-[#f1f1f1] dark:bg-[#171717] rounded-lg px-4 py-2.5 hover:text-[#171717] hover:dark:text-[#f1f1f1] cursor-pointer"
             >
               <Link href="">
@@ -69,7 +69,7 @@ const Sidebar = () => {
         <ModalComponent
           type={modalType}
           onClose={() => setModalType(null)}
-          imageSrc={modalType === "pin" ? "/InstagramLogo.png" : undefined}
+          imageSrc={modalType === "Authentificated" ? "/InstagramLogo.png" : undefined}
         />
       )}
     </>

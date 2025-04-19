@@ -4,13 +4,13 @@ import Image from "next/image";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 interface ModalProps {
-  type: "default" | "pin";
+  type: "default" | "Authentificated";
   imageSrc?: string;
   onClose: () => void;
 }
 
 const ModalComponent = ({ type, onClose }: ModalProps) => {
-  const isPin = type === "pin";
+  const isLogedIn = type === "Authentificated";
 
   return (
     <div
@@ -23,7 +23,7 @@ const ModalComponent = ({ type, onClose }: ModalProps) => {
       >
         <div className="flex flex-col items-center gap-2">
           <h2 className="text-3xl font-black">
-            {isPin
+            {isLogedIn
               ? "Зарегестрируйтесь, чтобы размещать публикации"
               : "Попробуйте Threads"}
           </h2>
