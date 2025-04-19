@@ -17,9 +17,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/threads.png" />
-      </head>
       <body className="antialiased flex items-center justify-between w-full bg-white dark:bg-[#0a0a0a] text-black dark:text-white">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Sidebar />
