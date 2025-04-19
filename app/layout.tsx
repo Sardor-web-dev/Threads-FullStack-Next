@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-import { Button } from "@/components/ui/button";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import { TbBrandThreads } from "react-icons/tb";
-import { CgMenuRightAlt } from "react-icons/cg";
-import { BiArrowBack } from "react-icons/bi";
-import { RiInstagramLine } from "react-icons/ri";
-import NavButton from "@/components/custom/NavButton";
-import Aside from "@/components/custom/Aside";
+import { FaInstagram } from "react-icons/fa";
+import { ThemeProvider } from "next-themes";
+import Sidebar from "@/components/custom/Sidebar";
 
 export const metadata: Metadata = {
   title: "Home . Threads",
@@ -30,84 +16,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`p-4 pb-0 antialiased  items-end justify-between w-full md:overflow-hidden md:flex `}
-      >
-        <Aside />
-
-        <header className="h-[65px] w-full fixed top-0 left-0 pt-4 pb-5 px-4 backdrop-blur-[10px]  bg-[rgba(0,0,0,0.69)] md:hidden">
-          <div className="flex  items-center justify-between">
-            <Link href={"/"}>
-              <BiArrowBack
-                size={22}
-                className="text-[#4d4d4d] cursor-pointer w-[55px] hover:text-white animate movie opacity-0"
-              />
-            </Link>
-            <Link href="/">
-              <TbBrandThreads
-                color="white"
-                size={34}
-                className="hover:scale-[1.1] animate"
-              />
-            </Link>
-
-            <div className="hidden">
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <CgMenuRightAlt
-                    size={22}
-                    className="text-[#4d4d4d] cursor-pointer hover:text-white animate movie"
-                  />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Billing</DropdownMenuItem>
-                  <DropdownMenuItem>Team</DropdownMenuItem>
-                  <DropdownMenuItem>Subscription</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-            <Button className="animate bg-white text-black text-[12px] cursor-pointer w-[60px] h-[30px] hover:bg-white">
-              Войти
-            </Button>
-          </div>
-        </header>
-
-        <div className="flex items-start gap-2 mx-auto mt-15 md:mt-0">
-          <div>
-            <p className="text-white font-semibold text-center mb-4 hidden md:block">
-              Главная
-            </p>
-            <main className="overflow-y-auto text-white  w-full mx-auto bg-black md:bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px]  scroll-none">
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased flex items-center justify-between w-full bg-white dark:bg-[#0a0a0a] text-black dark:text-white">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Sidebar />
+          <div className="flex gap-3 mx-auto">
+            <main className="w-[500px] mx-auto bg-white dark:bg-[#181818] text-black dark:text-white h-[95vh] rounded-3xl overflow-y-auto border border-black/10 dark:border-white/20">
               {children}
             </main>
+            <div className="w-[350px] h-[330px] bg-[#f5f5f5] dark:bg-[#1e1e1e] rounded-3xl border border-white/20 flex flex-col items-center justify-center gap-5 text-center text-black dark:text-white">
+              <div className="flex flex-col items-center gap-2">
+                <h2 className="text-xl font-bold">
+                  Войдите или <br /> зарегистрируйтесь в Threads
+                </h2>
+                <p className="text-[#777777]">
+                  Узнавайте, о чем говорят люди, и <br /> вступайте в разговоры.
+                </p>
+              </div>
+              <button className="flex items-center text-start gap-3 font-semibold bg-white dark:bg-[#101010] rounded-3xl p-6 cursor-pointer">
+                <FaInstagram size={24} />
+                Продолжить с аккаунтом <br /> Instagram
+              </button>
+              <Link href="" className="text-[#777777]">
+                Войти по имени пользователя
+              </Link>
+            </div>
           </div>
-          <div className="hidden w-[310px] bg-[#101010] max-h-[100%] rounded-2xl py-7 px-2.5 mt-10 xl:block">
-            <h2 className="text-white font-bold text-xl leading-5 text-center">
-              Войдите или <br /> зарегистрируйтесь в Threads
-            </h2>
-            <p className="text-center text-[15px] text-[#777777] mt-3 font-normal">
-              Узнавайте, о чем говорят люди, и вступайте в разговоры.
-            </p>
-            <button className="w-full py-6 px-5 cursor-pointer bg-[#080808] text-start leading-5 gap-2 rounded-2xl flex items-center  text-[white] text-[16px] font-semibold mt-6">
-              <RiInstagramLine className="text-[24px]" />
-              Продолжить с аккаунтом <br /> Instagram
-            </button>
-            <p className="text-center text-[#777777] mt-6 font-normal cursor-pointer">
-              Войти по имени пользователя
-            </p>
-          </div>
-          <Button className="animate bg-white text-black text-[14px] cursor-pointer w-[80px] h-[35px] hover:bg-white hidden md:block xl:hidden">
-            Войти
-          </Button>
-        </div>
-
-        <button className="hidden text-white">+</button>
-
-        <NavButton />
+        </ThemeProvider>
       </body>
     </html>
   );
