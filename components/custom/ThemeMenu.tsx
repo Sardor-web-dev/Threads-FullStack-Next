@@ -27,7 +27,7 @@ export default function AppearanceMenu() {
       </DropdownMenuTrigger>
 
       {!submenuOpen ? (
-        <DropdownMenuContent className="w-50 h-25 flex flex-col justify-around bg-white dark:bg-[#1e1e1e] text-black dark:text-white rounded-xl">
+        <DropdownMenuContent className="w-70 h-70 flex flex-col justify-around bg-white dark:bg-[#1e1e1e] text-black dark:text-white rounded-xl">
           <DropdownMenuItem
             onClick={() => setSubmenuOpen(true)}
             className="hover:bg-[#2a2a2a] cursor-pointer flex justify-between"
@@ -37,7 +37,23 @@ export default function AppearanceMenu() {
           </DropdownMenuItem>
           <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
             <h3 className="text-sm text-center font-semibold">
+              Статистика
+            </h3>
+          </DropdownMenuItem>
+          <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
+            <h3 className="text-sm text-center font-semibold">
+              Настройки
+            </h3>
+          </DropdownMenuItem>
+          <hr />
+          <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
+            <h3 className="text-sm text-center font-semibold">
               Сообщить о проблеме
+            </h3>
+          </DropdownMenuItem>
+          <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
+            <h3 className="text-sm text-center text-red-400 font-semibold">
+              Выйти
             </h3>
           </DropdownMenuItem>
         </DropdownMenuContent>
