@@ -2,7 +2,7 @@ import Post from "@/components/custom/Post";
 import { Thread } from "@/types/thread";
 
 export default async function Home() {
-  const response: Thread[] = await fetch("http://localhost:3000/api/data").then(
+  const response: Thread[] = await fetch("https:/threads-uz.netlify.app//api/data").then(
     (res) => res.json()
   );
   return (
