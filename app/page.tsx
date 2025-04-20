@@ -1,10 +1,16 @@
 import Post from "@/components/custom/Post";
+import { Thread } from "@/types/thread";
 
-export default function Home() {
+export default async function Home() {
+  const response: Thread[] = await fetch("http://localhost:3000/api/data").then((res) =>
+    res.json()
+  );
   return (
     <div className="">
-      <div className="flex overflow-y-auto flex-col p-10 gap-5 items-start">
-        <Post />
+      <div className="flex overflow-y-auto flex-col p-10 gap-10 items-start">
+        {response.map((thread : Thread) => (
+          <Post key={thread.id} thread={thread} />
+        ))}
       </div>
     </div>
   );
