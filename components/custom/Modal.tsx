@@ -9,7 +9,6 @@ interface ModalProps {
   imageSrc?: string;
   onClose: () => void;
 }
-
 const ModalComponent = ({ type, onClose }: ModalProps) => {
   const isLogedIn = type === "Authentificated";
 
