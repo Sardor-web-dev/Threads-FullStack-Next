@@ -12,11 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
+import { signOut, useSession } from "next-auth/react";
 
 export default function AppearanceMenu() {
   const { setTheme, theme } = useTheme();
   const [submenuOpen, setSubmenuOpen] = useState(false);
-
+  const { data: session } = useSession();
   return (
     <DropdownMenu
       open={submenuOpen ? true : undefined}
@@ -36,14 +37,10 @@ export default function AppearanceMenu() {
             <MdKeyboardArrowRight size={24} />
           </DropdownMenuItem>
           <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
-            <h3 className="text-sm text-center font-semibold">
-              Статистика
-            </h3>
+            <h3 className="text-sm text-center font-semibold">Статистика</h3>
           </DropdownMenuItem>
           <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
-            <h3 className="text-sm text-center font-semibold">
-              Настройки
-            </h3>
+            <h3 className="text-sm text-center font-semibold">Настройки</h3>
           </DropdownMenuItem>
           <hr />
           <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
@@ -51,11 +48,16 @@ export default function AppearanceMenu() {
               Сообщить о проблеме
             </h3>
           </DropdownMenuItem>
-          <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
-            <h3 className="text-sm text-center text-red-400 font-semibold">
-              Выйти
-            </h3>
-          </DropdownMenuItem>
+          {session && (
+            <DropdownMenuItem
+              onClick={() => signOut()}
+              className="hover:bg-[#2a2a2a] cursor-pointer"
+            >
+              <h3 className="text-sm text-center text-red-400 font-semibold">
+                Выйти
+              </h3>
+            </DropdownMenuItem>
+          )}
         </DropdownMenuContent>
       ) : (
         <DropdownMenuContent className="w-80 bg-white dark:bg-[#1e1e1e] border border-white/10 text-black dark:text-white rounded-xl">

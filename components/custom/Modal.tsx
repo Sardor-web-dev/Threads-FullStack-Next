@@ -1,5 +1,6 @@
 "use client";
 
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
@@ -34,7 +35,7 @@ const ModalComponent = ({ type, onClose }: ModalProps) => {
           </p>
         </div>
 
-        <button className="flex items-center gap-3 font-semibold bg-white dark:bg-[#101010] border rounded-2xl px-6 py-4 text-sm cursor-pointer">
+        <button onClick={() => signIn()} className="flex items-center gap-3 font-semibold bg-white dark:bg-[#101010] border rounded-2xl px-6 py-4 text-sm cursor-pointer">
           <Image width={50} height={50} src="/InstagramLogo.png" alt="" />
           Продолжить с аккаунтом Instagram
           <MdKeyboardArrowRight size={24} className="text-[#777777]" />

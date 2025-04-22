@@ -35,7 +35,7 @@ const threads = [
   },
   {
     id: 3,
-    avatar: "/erkin.jpg",
+    avatar: "/avatar.jpg",
     user: "Erkin",
     time: "1ч",
     text: "Hello world, it's Erkin here! Writing some code 🚀",
@@ -46,7 +46,7 @@ const threads = [
   },
   {
     id: 4,
-    avatar: "/murod.jpg",
+    avatar: "/avatar.jpg",
     user: "Murodjon",
     time: "3ч",
     text: "Building something cool with React and Next.js 🔥",
@@ -57,7 +57,7 @@ const threads = [
   },
   {
     id: 5,
-    avatar: "/ramiz.jpg",
+    avatar: "/avatar.jpg",
     user: "Ramizjon",
     time: "6ч",
     text: "Just finished my new portfolio website 🎉",
@@ -68,7 +68,7 @@ const threads = [
   },
   {
     id: 6,
-    avatar: "/daler.jpg",
+    avatar: "/avatar.jpg",
     user: "Daler",
     time: "8ч",
     text: "Working on some TypeScript magic ✨",
@@ -79,7 +79,7 @@ const threads = [
   },
   {
     id: 7,
-    avatar: "/ozod.jpg",
+    avatar: "/avatar.jpg",
     user: "Ozodbek",
     time: "9ч",
     text: "I love using shadcn/ui in my projects!",
@@ -90,7 +90,7 @@ const threads = [
   },
   {
     id: 8,
-    avatar: "/konstantin.jpg",
+    avatar: "/avatar.jpg",
     user: "Konstantin",
     time: "10ч",
     text: "Frontend is fun when you understand the logic 🧠",
@@ -101,7 +101,7 @@ const threads = [
   },
   {
     id: 9,
-    avatar: "/shaxriyor.jpg",
+    avatar: "/avatar.jpg",
     user: "Shaxriyor",
     time: "11ч",
     text: "CSS can be tricky, but Tailwind makes it easier 🧩",
@@ -112,7 +112,7 @@ const threads = [
   },
   {
     id: 10,
-    avatar: "/alex.jpg",
+    avatar: "/avatar.jpg",
     user: "Alex",
     time: "12ч",
     text: "Sharing my open-source project soon, stay tuned 💡",
