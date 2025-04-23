@@ -6,6 +6,7 @@ import Sidebar from "@/components/custom/Sidebar";
 import SessionProvider from "@/components/custom/SessionProvider";
 import { getServerSession } from "next-auth";
 import "./globals.css";
+import { signIn } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Главная • Threads ",
@@ -39,11 +40,12 @@ export default async function RootLayout({
                     разговоры.
                   </p>
                 </div>
-                <button className="flex items-center text-start gap-3 font-semibold bg-white dark:bg-[#101010] rounded-3xl p-6 cursor-pointer">
+                <button onClick={() => signIn()} className="flex items-center text-start gap-3 font-semibold bg-white dark:bg-[#101010] rounded-3xl p-6 cursor-pointer">
                   <FaInstagram size={24} />
                   Продолжить с аккаунтом <br /> Instagram
                 </button>
                 <Link
+                onClick={() => {signIn()}}
                   href=""
                   className="text-[#777777] hover:text-white transition"
                 >
