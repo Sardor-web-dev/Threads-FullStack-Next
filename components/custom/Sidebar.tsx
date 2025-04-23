@@ -10,9 +10,13 @@ import { FaRegUser } from "react-icons/fa";
 import { SlPin } from "react-icons/sl";
 import ModalComponent from "./Modal";
 import AppearanceMenu from "./ThemeMenu";
+import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
-  const [modalType, setModalType] = useState<null | "default" | "Authentificated">(null);
+  const [modalType, setModalType] = useState<
+    null | "default" | "Authentificated"
+  >(null);
+  const { data: session } = useSession();
 
   return (
     <>
@@ -46,12 +50,20 @@ const Sidebar = () => {
             >
               <IoMdHeartEmpty size={25} />
             </li>
-            <li
-              onClick={() => setModalType("default")}
-              className="rounded-lg px-4 py-2.5 hover:bg-[#f1f1f1] hover:dark:bg-[#171717] cursor-pointer"
-            >
-              <FaRegUser size={25} />
-            </li>
+            {!session ? (
+              <li
+                onClick={() => setModalType("default")}
+                className="rounded-lg px-4 py-2.5 hover:bg-[#f1f1f1] hover:dark:bg-[#171717] cursor-pointer"
+              >
+                <FaRegUser size={25} />
+              </li>
+            ) : (
+              <li>
+                <Link href="/profile">
+                  <FaRegUser size={25} />
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
         <div className="flex flex-col items-center gap-5 text-[#6B6B6B] dark:text-[#BBBBBB]">
@@ -69,7 +81,9 @@ const Sidebar = () => {
         <ModalComponent
           type={modalType}
           onClose={() => setModalType(null)}
-          imageSrc={modalType === "Authentificated" ? "/InstagramLogo.png" : undefined}
+          imageSrc={
+            modalType === "Authentificated" ? "/InstagramLogo.png" : undefined
+          }
         />
       )}
     </>
