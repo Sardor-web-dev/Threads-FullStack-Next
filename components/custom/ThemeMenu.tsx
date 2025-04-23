@@ -28,7 +28,7 @@ export default function AppearanceMenu() {
       </DropdownMenuTrigger>
 
       {!submenuOpen ? (
-        <DropdownMenuContent className="w-70 h-70 flex flex-col justify-around bg-white dark:bg-[#1e1e1e] text-black dark:text-white rounded-xl">
+        <DropdownMenuContent className="session && w-70 h-70 flex flex-col justify-around bg-white dark:bg-[#1e1e1e] text-black dark:text-white rounded-xl">
           <DropdownMenuItem
             onClick={() => setSubmenuOpen(true)}
             className="hover:bg-[#2a2a2a] cursor-pointer flex justify-between"
@@ -36,12 +36,18 @@ export default function AppearanceMenu() {
             <h3 className="text-sm text-center font-semibold">Внешний вид</h3>
             <MdKeyboardArrowRight size={24} />
           </DropdownMenuItem>
-          <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
-            <h3 className="text-sm text-center font-semibold">Статистика</h3>
-          </DropdownMenuItem>
-          <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
-            <h3 className="text-sm text-center font-semibold">Настройки</h3>
-          </DropdownMenuItem>
+          {session && (
+            <>
+              <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
+                <h3 className="text-sm text-center font-semibold">
+                  Статистика
+                </h3>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
+                <h3 className="text-sm text-center font-semibold">Настройки</h3>
+              </DropdownMenuItem>
+            </>
+          )}
           <hr />
           <DropdownMenuItem className="hover:bg-[#2a2a2a] cursor-pointer">
             <h3 className="text-sm text-center font-semibold">
