@@ -2,9 +2,9 @@ import Post from "@/components/custom/Post";
 import { Thread } from "@/types/thread";
 
 export default async function Home() {
-  const response: Thread[] = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data`).then(
-    (res) => res.json()
-  );
+  const response: Thread[] = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/data`
+  ).then((res) => res.json());
   return (
     <div className="">
       <div className="flex overflow-y-auto flex-col p-10 gap-10 items-start">

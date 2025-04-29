@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
-import Sidebar from "@/components/custom/Sidebar";
-import SessionProvider from "@/components/custom/SessionProvider";
-import { getServerSession } from "next-auth";
-import "./globals.css";
 import LoginRight from "@/components/custom/LoginLeft";
+import SessionProvider from "@/components/custom/SessionProvider";
+import Sidebar from "@/components/custom/Sidebar";
+import type { Metadata } from "next";
+import { getServerSession } from "next-auth";
+import { ThemeProvider } from "next-themes";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Главная • Threads ",
