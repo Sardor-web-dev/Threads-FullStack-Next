@@ -16,6 +16,7 @@ export default async function Home() {
 
   console.log(threads);
   return (
+    // Here is error fix later
     <div className="">
       <div className="flex overflow-y-auto flex-col p-10 gap-10 items-start">
         {threads.map((thread: Thread) => (
