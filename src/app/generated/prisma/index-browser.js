@@ -137,7 +137,8 @@ exports.Prisma.ThreadScalarFieldEnum = {
   likeCount: 'likeCount',
   views: 'views',
   resends: 'resends',
-  userId: 'userId'
+  userId: 'userId',
+  comments: 'comments'
 };
 
 exports.Prisma.SortOrder = {

@@ -2063,12 +2063,14 @@ export namespace Prisma {
     likeCount: number | null
     views: number | null
     resends: number | null
+    comments: number | null
   }
 
   export type ThreadSumAggregateOutputType = {
     likeCount: number | null
     views: number | null
     resends: number | null
+    comments: number | null
   }
 
   export type ThreadMinAggregateOutputType = {
@@ -2082,6 +2084,7 @@ export namespace Prisma {
     views: number | null
     resends: number | null
     userId: string | null
+    comments: number | null
   }
 
   export type ThreadMaxAggregateOutputType = {
@@ -2095,6 +2098,7 @@ export namespace Prisma {
     views: number | null
     resends: number | null
     userId: string | null
+    comments: number | null
   }
 
   export type ThreadCountAggregateOutputType = {
@@ -2108,6 +2112,7 @@ export namespace Prisma {
     views: number
     resends: number
     userId: number
+    comments: number
     _all: number
   }
 
@@ -2116,12 +2121,14 @@ export namespace Prisma {
     likeCount?: true
     views?: true
     resends?: true
+    comments?: true
   }
 
   export type ThreadSumAggregateInputType = {
     likeCount?: true
     views?: true
     resends?: true
+    comments?: true
   }
 
   export type ThreadMinAggregateInputType = {
@@ -2135,6 +2142,7 @@ export namespace Prisma {
     views?: true
     resends?: true
     userId?: true
+    comments?: true
   }
 
   export type ThreadMaxAggregateInputType = {
@@ -2148,6 +2156,7 @@ export namespace Prisma {
     views?: true
     resends?: true
     userId?: true
+    comments?: true
   }
 
   export type ThreadCountAggregateInputType = {
@@ -2161,6 +2170,7 @@ export namespace Prisma {
     views?: true
     resends?: true
     userId?: true
+    comments?: true
     _all?: true
   }
 
@@ -2257,10 +2267,11 @@ export namespace Prisma {
     text: string
     time: string
     published: boolean
-    likeCount: number
-    views: number
-    resends: number
+    likeCount: number | null
+    views: number | null
+    resends: number | null
     userId: string
+    comments: number | null
     _count: ThreadCountAggregateOutputType | null
     _avg: ThreadAvgAggregateOutputType | null
     _sum: ThreadSumAggregateOutputType | null
@@ -2293,6 +2304,7 @@ export namespace Prisma {
     views?: boolean
     resends?: boolean
     userId?: boolean
+    comments?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["thread"]>
 
@@ -2307,6 +2319,7 @@ export namespace Prisma {
     views?: boolean
     resends?: boolean
     userId?: boolean
+    comments?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["thread"]>
 
@@ -2321,6 +2334,7 @@ export namespace Prisma {
     views?: boolean
     resends?: boolean
     userId?: boolean
+    comments?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["thread"]>
 
@@ -2335,9 +2349,10 @@ export namespace Prisma {
     views?: boolean
     resends?: boolean
     userId?: boolean
+    comments?: boolean
   }
 
-  export type ThreadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"name" | "id" | "avatar" | "text" | "time" | "published" | "likeCount" | "views" | "resends" | "userId", ExtArgs["result"]["thread"]>
+  export type ThreadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"name" | "id" | "avatar" | "text" | "time" | "published" | "likeCount" | "views" | "resends" | "userId" | "comments", ExtArgs["result"]["thread"]>
   export type ThreadInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2360,10 +2375,11 @@ export namespace Prisma {
       text: string
       time: string
       published: boolean
-      likeCount: number
-      views: number
-      resends: number
+      likeCount: number | null
+      views: number | null
+      resends: number | null
       userId: string
+      comments: number | null
     }, ExtArgs["result"]["thread"]>
     composites: {}
   }
@@ -2798,6 +2814,7 @@ export namespace Prisma {
     readonly views: FieldRef<"Thread", 'Int'>
     readonly resends: FieldRef<"Thread", 'Int'>
     readonly userId: FieldRef<"Thread", 'String'>
+    readonly comments: FieldRef<"Thread", 'Int'>
   }
     
 
@@ -3246,7 +3263,8 @@ export namespace Prisma {
     likeCount: 'likeCount',
     views: 'views',
     resends: 'resends',
-    userId: 'userId'
+    userId: 'userId',
+    comments: 'comments'
   };
 
   export type ThreadScalarFieldEnum = (typeof ThreadScalarFieldEnum)[keyof typeof ThreadScalarFieldEnum]
@@ -3393,10 +3411,11 @@ export namespace Prisma {
     text?: StringFilter<"Thread"> | string
     time?: StringFilter<"Thread"> | string
     published?: BoolFilter<"Thread"> | boolean
-    likeCount?: IntFilter<"Thread"> | number
-    views?: IntFilter<"Thread"> | number
-    resends?: IntFilter<"Thread"> | number
+    likeCount?: IntNullableFilter<"Thread"> | number | null
+    views?: IntNullableFilter<"Thread"> | number | null
+    resends?: IntNullableFilter<"Thread"> | number | null
     userId?: StringFilter<"Thread"> | string
+    comments?: IntNullableFilter<"Thread"> | number | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -3407,10 +3426,11 @@ export namespace Prisma {
     text?: SortOrder
     time?: SortOrder
     published?: SortOrder
-    likeCount?: SortOrder
-    views?: SortOrder
-    resends?: SortOrder
+    likeCount?: SortOrderInput | SortOrder
+    views?: SortOrderInput | SortOrder
+    resends?: SortOrderInput | SortOrder
     userId?: SortOrder
+    comments?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -3424,10 +3444,11 @@ export namespace Prisma {
     text?: StringFilter<"Thread"> | string
     time?: StringFilter<"Thread"> | string
     published?: BoolFilter<"Thread"> | boolean
-    likeCount?: IntFilter<"Thread"> | number
-    views?: IntFilter<"Thread"> | number
-    resends?: IntFilter<"Thread"> | number
+    likeCount?: IntNullableFilter<"Thread"> | number | null
+    views?: IntNullableFilter<"Thread"> | number | null
+    resends?: IntNullableFilter<"Thread"> | number | null
     userId?: StringFilter<"Thread"> | string
+    comments?: IntNullableFilter<"Thread"> | number | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
@@ -3438,10 +3459,11 @@ export namespace Prisma {
     text?: SortOrder
     time?: SortOrder
     published?: SortOrder
-    likeCount?: SortOrder
-    views?: SortOrder
-    resends?: SortOrder
+    likeCount?: SortOrderInput | SortOrder
+    views?: SortOrderInput | SortOrder
+    resends?: SortOrderInput | SortOrder
     userId?: SortOrder
+    comments?: SortOrderInput | SortOrder
     _count?: ThreadCountOrderByAggregateInput
     _avg?: ThreadAvgOrderByAggregateInput
     _max?: ThreadMaxOrderByAggregateInput
@@ -3459,10 +3481,11 @@ export namespace Prisma {
     text?: StringWithAggregatesFilter<"Thread"> | string
     time?: StringWithAggregatesFilter<"Thread"> | string
     published?: BoolWithAggregatesFilter<"Thread"> | boolean
-    likeCount?: IntWithAggregatesFilter<"Thread"> | number
-    views?: IntWithAggregatesFilter<"Thread"> | number
-    resends?: IntWithAggregatesFilter<"Thread"> | number
+    likeCount?: IntNullableWithAggregatesFilter<"Thread"> | number | null
+    views?: IntNullableWithAggregatesFilter<"Thread"> | number | null
+    resends?: IntNullableWithAggregatesFilter<"Thread"> | number | null
     userId?: StringWithAggregatesFilter<"Thread"> | string
+    comments?: IntNullableWithAggregatesFilter<"Thread"> | number | null
   }
 
   export type UserCreateInput = {
@@ -3525,9 +3548,10 @@ export namespace Prisma {
     text: string
     time: string
     published?: boolean
-    likeCount?: number
-    views?: number
-    resends?: number
+    likeCount?: number | null
+    views?: number | null
+    resends?: number | null
+    comments?: number | null
     user: UserCreateNestedOneWithoutThreadsInput
   }
 
@@ -3538,10 +3562,11 @@ export namespace Prisma {
     text: string
     time: string
     published?: boolean
-    likeCount?: number
-    views?: number
-    resends?: number
+    likeCount?: number | null
+    views?: number | null
+    resends?: number | null
     userId: string
+    comments?: number | null
   }
 
   export type ThreadUpdateInput = {
@@ -3551,9 +3576,10 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
-    likeCount?: IntFieldUpdateOperationsInput | number
-    views?: IntFieldUpdateOperationsInput | number
-    resends?: IntFieldUpdateOperationsInput | number
+    likeCount?: NullableIntFieldUpdateOperationsInput | number | null
+    views?: NullableIntFieldUpdateOperationsInput | number | null
+    resends?: NullableIntFieldUpdateOperationsInput | number | null
+    comments?: NullableIntFieldUpdateOperationsInput | number | null
     user?: UserUpdateOneRequiredWithoutThreadsNestedInput
   }
 
@@ -3564,10 +3590,11 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
-    likeCount?: IntFieldUpdateOperationsInput | number
-    views?: IntFieldUpdateOperationsInput | number
-    resends?: IntFieldUpdateOperationsInput | number
+    likeCount?: NullableIntFieldUpdateOperationsInput | number | null
+    views?: NullableIntFieldUpdateOperationsInput | number | null
+    resends?: NullableIntFieldUpdateOperationsInput | number | null
     userId?: StringFieldUpdateOperationsInput | string
+    comments?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ThreadCreateManyInput = {
@@ -3577,10 +3604,11 @@ export namespace Prisma {
     text: string
     time: string
     published?: boolean
-    likeCount?: number
-    views?: number
-    resends?: number
+    likeCount?: number | null
+    views?: number | null
+    resends?: number | null
     userId: string
+    comments?: number | null
   }
 
   export type ThreadUpdateManyMutationInput = {
@@ -3590,9 +3618,10 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
-    likeCount?: IntFieldUpdateOperationsInput | number
-    views?: IntFieldUpdateOperationsInput | number
-    resends?: IntFieldUpdateOperationsInput | number
+    likeCount?: NullableIntFieldUpdateOperationsInput | number | null
+    views?: NullableIntFieldUpdateOperationsInput | number | null
+    resends?: NullableIntFieldUpdateOperationsInput | number | null
+    comments?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ThreadUncheckedUpdateManyInput = {
@@ -3602,10 +3631,11 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
-    likeCount?: IntFieldUpdateOperationsInput | number
-    views?: IntFieldUpdateOperationsInput | number
-    resends?: IntFieldUpdateOperationsInput | number
+    likeCount?: NullableIntFieldUpdateOperationsInput | number | null
+    views?: NullableIntFieldUpdateOperationsInput | number | null
+    resends?: NullableIntFieldUpdateOperationsInput | number | null
     userId?: StringFieldUpdateOperationsInput | string
+    comments?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3715,15 +3745,15 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type UserScalarRelationFilter = {
@@ -3742,12 +3772,14 @@ export namespace Prisma {
     views?: SortOrder
     resends?: SortOrder
     userId?: SortOrder
+    comments?: SortOrder
   }
 
   export type ThreadAvgOrderByAggregateInput = {
     likeCount?: SortOrder
     views?: SortOrder
     resends?: SortOrder
+    comments?: SortOrder
   }
 
   export type ThreadMaxOrderByAggregateInput = {
@@ -3761,6 +3793,7 @@ export namespace Prisma {
     views?: SortOrder
     resends?: SortOrder
     userId?: SortOrder
+    comments?: SortOrder
   }
 
   export type ThreadMinOrderByAggregateInput = {
@@ -3774,12 +3807,14 @@ export namespace Prisma {
     views?: SortOrder
     resends?: SortOrder
     userId?: SortOrder
+    comments?: SortOrder
   }
 
   export type ThreadSumOrderByAggregateInput = {
     likeCount?: SortOrder
     views?: SortOrder
     resends?: SortOrder
+    comments?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -3790,20 +3825,20 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type ThreadCreateNestedManyWithoutUserInput = {
@@ -3866,8 +3901,8 @@ export namespace Prisma {
     set?: boolean
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -3979,31 +4014,31 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type ThreadCreateWithoutUserInput = {
@@ -4013,9 +4048,10 @@ export namespace Prisma {
     text: string
     time: string
     published?: boolean
-    likeCount?: number
-    views?: number
-    resends?: number
+    likeCount?: number | null
+    views?: number | null
+    resends?: number | null
+    comments?: number | null
   }
 
   export type ThreadUncheckedCreateWithoutUserInput = {
@@ -4025,9 +4061,10 @@ export namespace Prisma {
     text: string
     time: string
     published?: boolean
-    likeCount?: number
-    views?: number
-    resends?: number
+    likeCount?: number | null
+    views?: number | null
+    resends?: number | null
+    comments?: number | null
   }
 
   export type ThreadCreateOrConnectWithoutUserInput = {
@@ -4066,10 +4103,11 @@ export namespace Prisma {
     text?: StringFilter<"Thread"> | string
     time?: StringFilter<"Thread"> | string
     published?: BoolFilter<"Thread"> | boolean
-    likeCount?: IntFilter<"Thread"> | number
-    views?: IntFilter<"Thread"> | number
-    resends?: IntFilter<"Thread"> | number
+    likeCount?: IntNullableFilter<"Thread"> | number | null
+    views?: IntNullableFilter<"Thread"> | number | null
+    resends?: IntNullableFilter<"Thread"> | number | null
     userId?: StringFilter<"Thread"> | string
+    comments?: IntNullableFilter<"Thread"> | number | null
   }
 
   export type UserCreateWithoutThreadsInput = {
@@ -4123,9 +4161,10 @@ export namespace Prisma {
     text: string
     time: string
     published?: boolean
-    likeCount?: number
-    views?: number
-    resends?: number
+    likeCount?: number | null
+    views?: number | null
+    resends?: number | null
+    comments?: number | null
   }
 
   export type ThreadUpdateWithoutUserInput = {
@@ -4135,9 +4174,10 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
-    likeCount?: IntFieldUpdateOperationsInput | number
-    views?: IntFieldUpdateOperationsInput | number
-    resends?: IntFieldUpdateOperationsInput | number
+    likeCount?: NullableIntFieldUpdateOperationsInput | number | null
+    views?: NullableIntFieldUpdateOperationsInput | number | null
+    resends?: NullableIntFieldUpdateOperationsInput | number | null
+    comments?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ThreadUncheckedUpdateWithoutUserInput = {
@@ -4147,9 +4187,10 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
-    likeCount?: IntFieldUpdateOperationsInput | number
-    views?: IntFieldUpdateOperationsInput | number
-    resends?: IntFieldUpdateOperationsInput | number
+    likeCount?: NullableIntFieldUpdateOperationsInput | number | null
+    views?: NullableIntFieldUpdateOperationsInput | number | null
+    resends?: NullableIntFieldUpdateOperationsInput | number | null
+    comments?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ThreadUncheckedUpdateManyWithoutUserInput = {
@@ -4159,9 +4200,10 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
-    likeCount?: IntFieldUpdateOperationsInput | number
-    views?: IntFieldUpdateOperationsInput | number
-    resends?: IntFieldUpdateOperationsInput | number
+    likeCount?: NullableIntFieldUpdateOperationsInput | number | null
+    views?: NullableIntFieldUpdateOperationsInput | number | null
+    resends?: NullableIntFieldUpdateOperationsInput | number | null
+    comments?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 

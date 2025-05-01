@@ -25,7 +25,7 @@ const Post = ({ thread }: { thread: Thread }) => {
         <div className="w-full ">
           <div className="flex items-center justify-between w-full gap-4">
             <p className="text-[16px] font-semibold">
-              {thread.name}<span className="font-normal text-[#a6a6a6] ml-1"> {thread.time}</span>
+              {thread.user.name}<span className="font-normal text-[#a6a6a6] ml-1"> {thread.time}</span>
             </p>
             <DropdownMenu>
               <DropdownMenuTrigger className="cursor-pointer pt-1">
