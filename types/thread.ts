@@ -1,6 +1,6 @@
 export interface Thread {
   id: number;
-  user: string;
+  name: string;
   time: string;
   text: string;
   likeCount: number;

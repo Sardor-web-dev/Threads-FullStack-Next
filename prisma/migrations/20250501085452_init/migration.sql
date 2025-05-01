@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Thread" ALTER COLUMN "time" SET DATA TYPE TEXT;
