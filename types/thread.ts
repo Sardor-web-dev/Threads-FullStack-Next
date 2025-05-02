@@ -1,19 +1,19 @@
 export type Thread = {
   id: string;
   name: string;
-  avatar?: string;
+  avatar?: string | null;
   text: string;
   time: string;
   published: boolean;
-  likeCount: number;
-  comments: number;
-  views: number;
-  resends: number;
+  likeCount?: number | null;
+  comments?: number | null;
+  views?: number | null;
+  resends?: number | null;
   userId: string;
   user: {
     id: string;
     name: string;
     email: string;
-    avatar?: string;
+    avatar?: string | null;
   };
 };
