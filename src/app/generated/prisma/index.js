@@ -177,7 +177,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:Sardor%202010@localhost:5432/threads?schema=public"
+        "value": "postgresql://neondb_owner:npg_0ZWiz9nrfTKF@ep-quiet-leaf-a42l8lzw-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require"
       }
     }
   },
