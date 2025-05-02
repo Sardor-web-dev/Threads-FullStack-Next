@@ -1,7 +1,7 @@
 export type Thread = {
   id: string;
   name: string;
-  avatar?: string | null;
+  avatar?: string | undefined | null | Blob
   text: string;
   time: string;
   published: boolean;
@@ -14,6 +14,6 @@ export type Thread = {
     id: string;
     name: string;
     email: string;
-    avatar?: string | null;
+    avatar?: string | null ;
   };
 };

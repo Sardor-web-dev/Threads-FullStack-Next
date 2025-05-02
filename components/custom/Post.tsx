@@ -19,7 +19,7 @@ const Post = ({ thread }: { thread: Thread }) => {
     <>
       <div className="flex w-full gap-4">
         <Avatar className="w-[36px] h-[36px] rounded-2xl">
-          <AvatarImage className="rounded-3xl" src={thread.avatar} />
+          <AvatarImage className="rounded-3xl" src={thread.avatar ?? undefined} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div className="w-full ">
