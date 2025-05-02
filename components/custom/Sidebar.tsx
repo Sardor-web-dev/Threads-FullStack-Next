@@ -36,14 +36,22 @@ const Sidebar = () => {
                 <IoSearch size={25} />
               </Link>
             </li>
-            <li
-              onClick={() => setModalType("Authentificated")}
-              className="bg-[#f1f1f1] dark:bg-[#171717] rounded-lg px-4 py-2.5 hover:text-[#171717] hover:dark:text-[#f1f1f1] cursor-pointer"
-            >
-              <Link href="">
-                <IoMdAdd size={25} />
-              </Link>
-            </li>
+            {!session ? (
+              <li
+                onClick={() => setModalType("Authentificated")}
+                className="bg-[#f1f1f1] dark:bg-[#171717] rounded-lg px-4 py-2.5 hover:text-[#171717] hover:dark:text-[#f1f1f1] cursor-pointer"
+              >
+                <Link href="">
+                  <IoMdAdd size={25} />
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link href="/add-post">
+                  <IoMdAdd size={25} />
+                </Link>
+              </li>
+            )}
             <li
               onClick={() => setModalType("default")}
               className="rounded-lg px-4 py-2.5 hover:bg-[#f1f1f1] hover:dark:bg-[#171717] cursor-pointer"
